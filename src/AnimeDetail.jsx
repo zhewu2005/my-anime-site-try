@@ -50,7 +50,7 @@ export default function AnimeDetail() {
     );
   }
 
-  // 3. 渲染錯誤畫面
+  // 渲染錯誤畫面
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center text-red-500">
