@@ -12,6 +12,7 @@ export default function AnimeDetail() {
   // 狀態管理：anime 存放單筆資料, loading 控制讀取狀態
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // 1. 增加 error 狀態
 
   // 進入頁面時：依照 id 從 Firestore 抓資料
   useEffect(() => {
@@ -28,8 +29,9 @@ export default function AnimeDetail() {
           // 若找不到 → 設為 null
           setAnime(null);
         }
-      } catch (error) {
-        console.error("抓取資料時出錯:", error);
+      } catch (err) {
+        console.error("抓取資料時出錯:", err);
+        setError("資料讀取失敗，請稍後再試。"); // 2. 設定錯誤訊息
       } finally {
         // 結束載入狀態
         setLoading(false);
@@ -44,6 +46,15 @@ export default function AnimeDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-600">
         ⏳ 正在載入動漫資料...
+      </div>
+    );
+  }
+
+  // 3. 渲染錯誤畫面
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-red-500">
+        ❌ {error}
       </div>
     );
   }
