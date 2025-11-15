@@ -5,7 +5,6 @@ import AnimeList from "./AnimeList";
 import AnimeDetail from "./AnimeDetail";
 import About from "./About";
 import Favorite from "./Favorite";
-import AddAnime from "./AddAnime";
 import Login from "./Login";
 
 // 引入 useAuth (我們的「接收器」) 和 Firebase 相關功能
@@ -106,7 +105,6 @@ export default function App() {
           <Route path="/anime-detail/:id" element={<AnimeDetail />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/about" element={<About />} />
-          <Route path="/add-anime" element={<AddAnime />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
