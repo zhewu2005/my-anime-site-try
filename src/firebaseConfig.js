@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -21,4 +22,7 @@ export const db = getFirestore(app);
 
 // 匯出 Auth 實例
 export const auth = getAuth(app);
+
+// 匯出 Realtime Database 實例
+export const rtdb = getDatabase(app);
 
